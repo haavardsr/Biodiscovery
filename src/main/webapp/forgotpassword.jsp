@@ -1,4 +1,4 @@
-<jsp:include page="/header.jsp"/>
+<jsp:include page="header.jsp"/>
 <%@ page contentType="text/html;charset=UTF-8" %>
 
 
@@ -8,10 +8,10 @@
 
 <div class="container-fluid m-0 p-0">
     <div  class="row d-flex justify-content-center align-items-center p-0 m-0 main-section">
-        <img class="image-cover" src="https://s3.amazonaws.com/upload.uxpin/files/1159501/1120188/image-1854303b3639c8a2b889df6e9a5812b2-83640f.png" alt="">
+        <img class="media/Biodiscovery/challenger-voyage-scientific-art%20(1).png" alt="">
 
         <div id="picture_form" >
-            <img src="https://s3.amazonaws.com/upload.uxpin/files/1159501/1120188/logo-809595524b2b6d4faeb20844d7a36414.png" class="img-fluid login-image" alt="logo-picture">
+            <img src="media/Biodiscovery/logo_size-1.jpg" class="img-fluid login-image" alt="logo-picture">
             <p id="text_for_logo">Equipment rental</p>
             <form autocomplete="off" action="/forgotpassword" method = "post">
                 <input type="hidden" name="csrf" value="<% out.print(session.getAttribute("csrf")); %>">
@@ -45,12 +45,10 @@
     <div class="container-fluid m-0 p-0">
         <div class="footer w-100 m-0">
             <h5 class="font-weight-bold text-center footer_text">Solid. Creative. Proud.</h5>
-            <p class="font-weight-bold text-center">AMV AS</p>
-            <p class="text-center">Svegeskogen 2</p>
-            <p class="text-center">4400 Flekkefjord</p>
-            <p class="text-center">+47 38 32 04 20</p>
+            <p class="font-weight-bold text-center">Biodiscovery AS</p>
+
         </div>
     </div>
 </div>
 
-<jsp:include page="/footer.jsp"/>
+<jsp:include page="footer.jsp"/>
