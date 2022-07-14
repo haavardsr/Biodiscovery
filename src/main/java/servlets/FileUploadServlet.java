@@ -17,8 +17,8 @@ import java.nio.file.Paths;
 import java.util.logging.Logger;
 
 
-@WebServlet(name = "fileUpload", value = "/fileUpload")
-@MultipartConfig(fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 5 * 5)
+@WebServlet(name = "fileUpload", urlPatterns = "/fileUpload")
+@MultipartConfig(fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 5 * 5)//location = I cloud. Denne må endres
 public class FileUploadServlet extends HttpServlet {
 
     Logger logger = Logger.getLogger(FileUploadServlet.class.getName());
@@ -28,7 +28,7 @@ public class FileUploadServlet extends HttpServlet {
         response.setContentType("text/html");
 
         PrintWriter out = response.getWriter();
-        HtmlHelper.writeHtmlStart(out, "Upload a file");
+        HtmlHelper.writeHtmlStart(out, "Upload a fastaq file");
         writeFileUploadForm(out,null);
         HtmlHelper.writeHtmlEnd(out);
     }
@@ -36,7 +36,7 @@ public class FileUploadServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        HtmlHelper.writeHtmlStart(out, "Upload a file");
+        HtmlHelper.writeHtmlStart(out, "Thanks for uploading");
         try{
             Part filePart = request.getPart("file");
             String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
