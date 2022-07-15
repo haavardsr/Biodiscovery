@@ -29,9 +29,8 @@ public class DBFunctions {
         ps.setString(3, email);
         ps.setString(4, tlf);
         ps.setString(5, hash);
-        ps.setBoolean(6, union.equals("on"));
-        ps.setBoolean(7, superuser.equals("on"));
-        ps.setString(8, salt);
+        ps.setBoolean(6, superuser.equals("on"));
+        ps.setString(7, salt);
 
 
         ps.execute();
@@ -56,10 +55,9 @@ public class DBFunctions {
         ps.setString(3, email);
         ps.setString(4, tlf);
         ps.setString(5, hash);
-        ps.setBoolean(6, union.equals("on"));
-        ps.setBoolean(7, superuser.equals("on"));
-        ps.setString(8, salt);
-        ps.setInt(9, id);
+        ps.setBoolean(6, superuser.equals("on"));
+        ps.setString(7, salt);
+        ps.setInt(8, id);
         ps.execute();
     }
 
@@ -75,9 +73,8 @@ public class DBFunctions {
         ps.setString(2, last_name);
         ps.setString(3, email);
         ps.setString(4, tlf);
-        ps.setBoolean(5, union.equals("on"));
-        ps.setBoolean(6, superuser.equals("on"));
-        ps.setInt(7, id);
+        ps.setBoolean(5, superuser.equals("on"));
+        ps.setInt(6, id);
 
 
         ps.execute();

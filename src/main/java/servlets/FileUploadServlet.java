@@ -47,6 +47,8 @@ public class FileUploadServlet extends HttpServlet {
         try{
             Part filePart = request.getPart("file");
             String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+            String path = Paths.get(filePart.getSubmittedFileName()).toFile().getParent();
+            System.out.println(path);
             if (isFastqFile(fileName)){
                 writeFileUploadForm(out,"");
 
