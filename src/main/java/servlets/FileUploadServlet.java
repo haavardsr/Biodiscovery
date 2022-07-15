@@ -4,6 +4,8 @@ import DAO.FileDAO;
 import models.FileModel;
 import utils.HtmlHelper;
 import io.jsonwebtoken.*;
+
+import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,23 +16,28 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.logging.Logger;
 
 
 @WebServlet(name = "fileUpload", urlPatterns = "/fileUpload")
-@MultipartConfig(fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 5 * 5)//location = I cloud. Denne må endres
+@MultipartConfig(maxFileSize = 1024*1024*300)//location = hdd/data/ I cloud. Denne må endres
 public class FileUploadServlet extends HttpServlet {
+
+
 
     Logger logger = Logger.getLogger(FileUploadServlet.class.getName());
 
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
 
         PrintWriter out = response.getWriter();
         HtmlHelper.writeHtmlStart(out, "Upload a fastaq file");
         writeFileUploadForm(out,null);
         HtmlHelper.writeHtmlEnd(out);
+
+        request.getRequestDispatcher("fileUpload.jsp").forward(request, response);
     }
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -40,6 +47,10 @@ public class FileUploadServlet extends HttpServlet {
         try{
             Part filePart = request.getPart("file");
             String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+            if (isFastqFile(fileName)){
+                writeFileUploadForm(out,"");
+
+            }
             InputStream fileContent = filePart.getInputStream();
             byte[] fileBytes = fileContent.readAllBytes();
 
@@ -73,5 +84,13 @@ public class FileUploadServlet extends HttpServlet {
         out.println("<input type='file' name='file'/>");
         out.println("<input type='submit' value='Upload file'/>");
         out.println("</form>");
+        out.println("<label for='myfile'>Select a file:</label>");
+        out.println("<input type='file' id='myfile' name='myfile'>");
+
+
+    }
+    private boolean isFastqFile(String fileName) {
+        return Arrays.asList("fastq")
+                .contains(org.apache.commons.io.FilenameUtils.getExtension(fileName));
     }
 }

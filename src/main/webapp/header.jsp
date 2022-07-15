@@ -6,7 +6,6 @@
     <div class="info">
         <h1>Biodiscovery</h1>
         <div class="meta">
-            <a  href="http://localhost:8081/fileUpload"></a><br>
         </div>
     </div>
 </div>

@@ -4,15 +4,6 @@ use MytestDB;
 
 set time_zone ='+01:00';
 
-CREATE TABLE specs
-(
-    id   INT AUTO_INCREMENT
-        PRIMARY KEY,
-    name VARCHAR(255)
-
-
-) CHARSET = utf8mb3;
-
 CREATE TABLE user
 (
     id              INT AUTO_INCREMENT

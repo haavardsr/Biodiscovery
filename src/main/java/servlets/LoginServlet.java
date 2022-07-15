@@ -48,7 +48,7 @@ public class LoginServlet extends Servlet {
             if(Validation.validateUser(email, password)){
                 session.setAttribute("email", email);/*saving  the attribute for later*/
                 session.setAttribute("error", null);
-                response.sendRedirect("/home");
+                response.sendRedirect("/fileUpload");
             }else{
                 session.setAttribute("error", "Incorrect email or password");
                 session.setAttribute("email", null);
