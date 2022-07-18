@@ -7,10 +7,10 @@ docker kill tomcat
 docker run --rm -it --name mavenbuild -v maven-repo:/root/.m2 -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven mvn clean install
 
 # Copy and rebuilds tomcat image with latest .war file
-docker image build -t trym/tomcat .
+docker image build -t haavard/tomcat .
 
 # Start tomcat container, making the webapp available.
-docker container run --rm -it -d --name tomcat --publish 8081:8080 trym/tomcat
+docker container run --rm -it -d --name tomcat --publish 8081:8080 haavard/tomcat
 
 echo ""
 echo "Link: http://localhost:8081/"
