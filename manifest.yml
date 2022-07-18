@@ -1,7 +1,7 @@
 ---
 applications:
   - buildpack: https://github.com/https://github.com/haavardsr/Biodiscovery
-    host: Biodiscovery/
-    name: Biodiscovery/
+    host: Biodiscovery-hsr95
+    name: Biodiscovery-hsr95
     memory: 64M
     stack: cflinuxfs2
