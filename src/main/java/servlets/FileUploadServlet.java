@@ -23,7 +23,7 @@ import java.nio.file.Path;
 public class FileUploadServlet extends HttpServlet {
 
 
-    private static final String UPLOAD_DIR = "FastqDIR";
+    private static final String UPLOAD_DIR = "/../../FastqDIR";
     Logger logger = Logger.getLogger(FileUploadServlet.class.getName());
 
     @Override

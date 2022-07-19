@@ -8,7 +8,7 @@
 
 <div class="container-fluid m-0 p-0">
     <div  class="row d-flex justify-content-center align-items-center p-0 m-0 main-section">
-        <img class="image-cover" src="media/Biodiscovery/challenger-voyage-scientific-art%20(1).png" alt="">
+        <img class="image-cover" src="media/Biodiscovery/pd19batch37-053-gloy.jpg" alt="">
 
         <div id="picture_form" >
             <img src="media/Biodiscovery/logo_size-1.jpg" class="img-fluid login-image" alt="logo-picture">

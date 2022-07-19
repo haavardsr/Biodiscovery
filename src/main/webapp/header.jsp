@@ -10,6 +10,6 @@
     </div>
 </div>
 <section class="content">
-    <p>placeholder txt</p>
+    <p>The sea cures all ailments of man</p>
     </p>
 </section>

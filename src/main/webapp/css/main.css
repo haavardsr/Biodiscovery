@@ -40,7 +40,7 @@ body {
 
 }
 
-.biod-card-container {
+.biodiscovery-card-container {
     padding: 2px 16px;
     border-radius: 20px;
 }
@@ -55,20 +55,20 @@ body {
 }
 
 @media only screen and (max-width: 400px ) {
-    .amv-header {
+    .biodiscovery-header {
         font-size: 1.5rem !important;
     }
 }
 
 @media only screen and (min-width: 400px ) {
-    .amv-header {
+    .biodiscovery-header {
         font-size: 2.5rem !important;
         margin-bottom: 20px;
 
     }
 }
 
-.bicdiscovery-btn1 {
+.biodiscovery-btn1 {
     background-color: #93dbce;
     color: #11165a !important;
     border: none !important;
@@ -76,7 +76,7 @@ body {
 
 }
 
-.bicdiscovery-btn2 {
+.biodiscovery-btn2 {
     background-color: #11165a !important;
     color: white;
     border: none !important;
@@ -89,7 +89,7 @@ body {
     font-size: 1.5rem;
 }
 
-.bicdiscovery-btn1:hover {
+.biodiscovery-btn1:hover {
     transform: scale(1.04);
 }
 
@@ -139,7 +139,7 @@ body {
     }
 }
 
-.bicdiscovery-font-thin {
+.biodiscovery-font-thin {
     font-family: 'Roboto Thin', sans-serif;
     font-weight: 500;
     font-style: normal;
@@ -148,7 +148,7 @@ body {
     font-size: 1.5rem;
 }
 
-.bicdiscovery-color {
+.biodiscovery-color {
     color: #11165a !important;
 }
 
@@ -312,16 +312,6 @@ button:hover {
 
 .dtr-title {
     font-weight: bold !important;
-}
-
-
-.add-equip-main {
-    text-align: -webkit-center;
-    background: url("") center;
-    background-size: cover;
-    height: auto;
-    min-height: 100vh !important;
-    min-width: 230px;
 }
 
 
