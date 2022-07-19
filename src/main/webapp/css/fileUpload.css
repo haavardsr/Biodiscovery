@@ -1,0 +1,26 @@
+.footer{
+    position: relative;
+    bottom: 0;
+    height:15%;
+    background-color: #93dbce;
+    color: #000000;
+    line-height: 5px;
+}
+
+.footer_text {
+    margin-top: 7.5px;
+}
+
+button {
+    background-size: cover;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    height: 45px;
+    width: 228px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 10px;
+    z-index: auto;
+    position: absolute;
+}

@@ -40,12 +40,12 @@ body {
 
 }
 
-.amv-card-container {
+.biod-card-container {
     padding: 2px 16px;
     border-radius: 20px;
 }
 
-.amv-header {
+.biodiscovery-header {
     position: relative;
     top: 0;
     border-radius: 20px 20px 0 0;
@@ -567,20 +567,20 @@ button:hover {
     transform: scale(1.03);
 }
 
-.amv-table tr,.amv-table td{
+.biodiscovery-table tr,.biodiscovery-table td{
     background-color:transparent!important;
 }
 
-.amv-table tbody{
+.biodiscovery-table tbody{
     background-color:#ffffff5c!important;
 }
 
-.amv-btn-update{
+.biod-btn-update{
     background-color: #11165a;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     color: white !important;
 }
-.amv-btn-update:hover{
+.biodiscovery-btn-update:hover{
     transform: scale(1.04);
 }
 .alert{
@@ -598,7 +598,7 @@ button:hover {
 }
 
 
-.amv-table tbody td{
+.biodiscovery-table tbody td{
     border-color: transparent!important;
 }
 
@@ -606,7 +606,7 @@ button:hover {
 table.dataTable{
     border-spacing: 0px 2px!important;
 }
-.amv-nav{
+.biodiscovery-nav{
     background-color: #ffb300;
     border-bottom: 1px solid #11165a;
     font-size: 1.30rem!important;
@@ -615,15 +615,15 @@ table.dataTable{
     width:100%;
 }
 
-.amv-nav-link{
+.biodiscovery-nav-link{
     padding-left: 3rem!important;
 
 }
-.amv-logo{
+.biodiscovery-logo{
     height: 60px;
 }
 
-.amv-logout{
+.biodiscovery-logout{
     position: fixed;
     right: 2rem;
 }

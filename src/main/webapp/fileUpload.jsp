@@ -5,6 +5,7 @@
 <div class="container">
     <div class="form-group" x-data="{ fileName: '' }">
         <div class="input-group shadow">
+            <img class="image-cover" src="media/Biodiscovery/Haeckel_Stephoidea.jpg" alt="">
             <span class="input-group-text px-3 text-muted"><i class="fas fa-image fa-lg"></i></span>
             <form action="/fileUpload" method="post"
                 enctype="multipart/form-data">
