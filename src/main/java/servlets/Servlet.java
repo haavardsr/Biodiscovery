@@ -1,8 +1,8 @@
 package servlets;
 
+import org.apache.commons.codec.EncoderException;
 import utils.CSRF;
 
-import org.apache.commons.codec.EncoderException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -53,5 +53,3 @@ public class Servlet extends HttpServlet {
         }
     }
 }
-
-

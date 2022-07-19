@@ -1,42 +1,47 @@
 package servlets;
 
-import DAO.FileDAO;
-import models.FileModel;
 import utils.HtmlHelper;
-
+import utils.Validation;
 import java.io.File;
-import java.nio.file.Paths;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.logging.Logger;
-import java.nio.file.Path;
+
 
 
 @WebServlet(name = "fileUpload", urlPatterns = "/fileUpload")
 @MultipartConfig(maxFileSize = 1024*1024*300)
-public class FileUploadServlet extends HttpServlet {
+public class FileUploadServlet extends Servlet {
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=utf-8");
+        request.setAttribute("title", "fileUpload");
+        PrintWriter out = response.getWriter();
+        HtmlHelper.writeHtmlStart(out, "Upload a fastaq file");
+        writeFileUploadForm(out, null);
+        HtmlHelper.writeHtmlEnd(out);
+
+        super.setCSRF(request);
+        if(Validation.isAuthenticated(request)){
+
+            request.getRequestDispatcher("fileUpload.jsp").forward(request, response);
+        }else{
+            request.getSession().setAttribute("error", "Du må logge inn for å få tilgang til andre sider");
+            response.sendRedirect("login");
+        }
+
+    }
 
     private static final String UPLOAD_DIR = "/../../FastqDIR";
     Logger logger = Logger.getLogger(FileUploadServlet.class.getName());
 
-    @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        response.setContentType("text/html");
-
-        PrintWriter out = response.getWriter();
-        HtmlHelper.writeHtmlStart(out, "Upload a fastaq file");
-        writeFileUploadForm(out,null);
-        HtmlHelper.writeHtmlEnd(out);
-
-        request.getRequestDispatcher("fileUpload.jsp").forward(request, response);
-    }
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");

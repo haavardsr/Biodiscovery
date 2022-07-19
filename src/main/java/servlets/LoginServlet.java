@@ -1,6 +1,6 @@
 package servlets;
 
-
+import models.User;
 import models.User;
 import utils.DBFunctions;
 import utils.DBUtils;

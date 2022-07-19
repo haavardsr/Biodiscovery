@@ -12,7 +12,7 @@ import java.util.Arrays;
  * A class for encrypting passwords based on sha256 algorithm
  * For making the password hash stronger, salt and pepper is used
  *
- * @author Group 11
+ * @author Haavard
  * @version 1.0
  */
 public class SecureUtils {

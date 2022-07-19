@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public class DBFunctions {
     public static HashMap<String, String> singleKeyValueToJson(String key, String value) {
@@ -61,11 +62,11 @@ public class DBFunctions {
         ps.execute();
     }
 
-    public static void updateEmployee(int id, String first_name, String last_name, String email, String tlf, String union, String superuser) throws Exception {
+    public static void updateEmployee(int id, String first_name, String last_name, String email, String tlf, String superuser) throws Exception {
         PreparedStatement ps;
         Connection db;
         db = DBUtils.getINSTANCE().getConnection();
-        String query = "update user set first_name = ?, last_name=?, email=?, tlf=?,  is_union=?, is_superuser=? where id=?";
+        String query = "update user set first_name = ?, last_name=?, email=?, tlf=?, is_superuser=? where id=?";
 
         ps = db.prepareStatement(query);
 

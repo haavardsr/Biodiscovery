@@ -1,6 +1,6 @@
 package utils;
 
-import org.apache.commons.codec.EncoderException;
+import  org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.binary.Base64;
 
 import java.security.MessageDigest;

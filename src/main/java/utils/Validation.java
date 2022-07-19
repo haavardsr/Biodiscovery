@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
+
 public class Validation {
 
     public static boolean validatePasswords(String password1, String password2){
@@ -27,7 +28,7 @@ public class Validation {
         User user = null;
         try {
             db = DBUtils.getINSTANCE().getConnection();
-            String query = "SELECT password,salt FROM biodiscovery.user WHERE email = ?";
+            String query = "SELECT password,salt FROM MytestDB.user WHERE email = ?";
             ResultSet rs;
             ps = db.prepareStatement(query);
             ps.setString(1, email);
@@ -62,7 +63,7 @@ public class Validation {
             User user = null;
             try {
                 db = DBUtils.getINSTANCE().getConnection();
-                String query = "SELECT is_superuser FROM biodiscovery.user WHERE email = ? and is_superuser = 1";
+                String query = "SELECT is_superuser FROM MytestDB.user WHERE email = ? and is_superuser = 1";
                 ResultSet rs;
                 ps = db.prepareStatement(query);
                 ps.setString(1, email);
@@ -98,7 +99,7 @@ public class Validation {
                 .parseClaimsJws(jwt);
     }
     public static String createToken(String email) {
-        String issuer = "amv";
+        String issuer = "MytestDB";
         String subject = "reset";
         //The JWT signature algorithm we will be using to sign the token
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
@@ -127,7 +128,7 @@ public class Validation {
     public static void main( String[] args) throws NoSuchFieldException, IllegalAccessException {
         User user = new User();
         user.setId(1);
-        String token = createToken("issa@gmail.com");
+        String token = createToken("haavard@gmail.com");
         try {
 
             Jws<Claims> claims = decodeJWT(token);
