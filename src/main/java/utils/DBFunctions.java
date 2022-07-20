@@ -16,13 +16,13 @@ public class DBFunctions {
         return single;
     }
 
-    public static void storeEmployee(String first_name, String last_name, String email, String tlf, String union, String superuser, String password1) throws Exception {
+    public static void storeEmployee(String first_name, String last_name, String email, String tlf, String superuser, String password1) throws Exception {
         PreparedStatement ps;
         Connection db;
         String salt = SecureUtils.makeSalt();
         String hash = SecureUtils.makePassword(password1, salt);
         db = DBUtils.getINSTANCE().getConnection();
-        String query = "INSERT INTO user (first_name, last_name, email, tlf, password, is_union, is_superuser, salt) values (?,?,?,?,?,?,?,?)";
+        String query = "INSERT INTO user (first_name, last_name, email, tlf, password, is_superuser, salt) values (?,?,?,?,?,?,?,?)";
         ps = db.prepareStatement(query);
 
         ps.setString(1, first_name);
@@ -38,7 +38,7 @@ public class DBFunctions {
     }
 
 
-    public static void updateEmployee(int id, String first_name, String last_name, String email, String tlf, String union, String superuser, String password1) throws SQLException, ClassNotFoundException {
+    public static void updateEmployee(int id, String first_name, String last_name, String email, String tlf, String superuser, String password1) throws SQLException, ClassNotFoundException {
         PreparedStatement ps;
         Connection db;
         String salt = SecureUtils.makeSalt();

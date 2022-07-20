@@ -57,5 +57,5 @@ VALUES ('c2696c1d1ee286e4c92cfb553bc147745fb740e8c22aa0df6ebde7461ea6b663', 'hå
        ('e6a1f9acda8f7ca6eea57ba85f9c0620478827209c3316f77a3ebe9d140da9ba', 'hans', 'hans', 'hans@gmail.com',
         '12345678', 1, '15KA8EmTj1Q9+9HtVRXueg==', NULL),
        ('e6a1f9acda8f7ca6eea57ba85f9c0620478827209c3316f77a3ebe9d140da9ba', 'new', 'new', 'amv.rental.test@gmail.com',
-        '12345678', 1, '15KA8EmTj1Q9+9HtVRXueg==', NULL)
+        '12345678', 1, '15KA8EmTj1Q9+9HtVRXueg==', NULL);
 
