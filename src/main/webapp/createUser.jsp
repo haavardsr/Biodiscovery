@@ -77,7 +77,6 @@
                                     for
                                     verification.</small>
                             </div>
-
                         </div>
                         <div class="form-group justify-content-around">
                             <div id="div_id_is_union" class="form-check">

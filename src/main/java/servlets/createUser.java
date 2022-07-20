@@ -2,25 +2,19 @@ package servlets;
 
 
 import com.google.gson.Gson;
-
-import models.EquipmentType;
-
 import utils.DBFunctions;
 import utils.DBUtils;
-import utils.SecureUtils;
 import utils.Validation;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
-
 import java.io.PrintWriter;
 import java.sql.*;
-
 import java.util.ArrayList;
 
 
-@WebServlet(name = "CreateUser", urlPatterns = {"/createUser"})
+@WebServlet(name = "createUser", urlPatterns = {"/createUser"})
 public class createUser extends Servlet {
 
 
@@ -28,13 +22,13 @@ public class createUser extends Servlet {
 
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
-        request.setAttribute("title", "legg til ansatt");
+        request.setAttribute("title", "legg til Bruker");
         request.getRequestDispatcher("createUser.jsp").forward(request, response);
-
     }
 
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
         HttpSession session = request.getSession();
@@ -92,7 +86,7 @@ public class createUser extends Servlet {
                             Connection db = null;
                             PreparedStatement ps;
                             try {
-                                DBFunctions.storeUser(first_name, last_name, email, tlf, superuser, password1);
+                                DBFunctions.storeEmployee(first_name, last_name, email, tlf, superuser, password1);
 
                                 String q = "select last_insert_id() as user_id";
                                 db = DBUtils.getINSTANCE().getConnection();
@@ -106,15 +100,11 @@ public class createUser extends Servlet {
 
                                 if (userId != 0) {
 
-                                    String query2 = "insert into rent_restriction (is_trained, equipment_type_id,user_id) values (?,?,?) on duplicate KEY UPDATE is_trained=?,equipment_type_id=?,user_id=?";
+                                    String query2 = "insert into (user_id) values (?,?,?) on duplicate KEY UPDATE user_id=?";
                                     ps = db.prepareStatement(query2);
                                     for (int i : types) {
-                                        ps.setBoolean(1, true);
-                                        ps.setInt(2, i);
-                                        ps.setInt(3, userId);
-                                        ps.setBoolean(4, true);
-                                        ps.setInt(5, i);
-                                        ps.setInt(6, userId);
+                                        ps.setInt(1, userId);
+                                        ps.setInt(2, userId);
                                         ps.execute();
                                     }
 
@@ -141,7 +131,9 @@ public class createUser extends Servlet {
                                     pw.print(finalResult);
                                     pw.close();
 
+
                                 }
+
                             } catch (Exception e) {
                                 throw new RuntimeException(e);
                             }
@@ -150,46 +142,14 @@ public class createUser extends Servlet {
                     }
                 }
             }
-        } else {
-
-            finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Bad request (error-code: 400)."));
-            pw.print(finalResult);
-            pw.close();
 
 
         }
+        session.setAttribute("error", "En feil har oppstått!");
+        return;
     }
-
-
-    protected ArrayList<EquipmentType> getEquipmentTypes(HttpSession session) {
-        Connection db = null;
-        PreparedStatement ps;
-        ArrayList<EquipmentType> types = new ArrayList<>();
-        try {
-            db = DBUtils.getINSTANCE().getConnection();
-            String query = "select name, id from equipment_type";
-            ResultSet rs;
-            ps = db.prepareStatement(query);
-            rs = ps.executeQuery();
-
-
-            while (rs.next()) {
-
-                EquipmentType type = new EquipmentType();
-                type.setName(rs.getString("name"));
-                type.setId(rs.getInt("id"));
-                types.add(type);
-
-            }
-            return types;
-
-        } catch (SQLException | ClassNotFoundException e) {
-
-            e.printStackTrace();
-            session.setAttribute("error", "En feil har oppstått!");
-            return null;
-        }
-
-    }
-
 }
+
+
+
+
