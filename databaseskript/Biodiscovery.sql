@@ -46,16 +46,16 @@ create table files(
 
 #inserter en record av en bruker inn i databasen otra.
 INSERT INTO user (password, first_name, last_name, email, tlf, is_superuser, salt, verificationKey)
-VALUES ('c2696c1d1ee286e4c92cfb553bc147745fb740e8c22aa0df6ebde7461ea6b663', 'håvard', 'håvard', 'haavard@gmail.com',
-        '12345678', 1, 'rS4zXqNn3314QA7ABivokQ==', NULL),
-       ('e6a1f9acda8f7ca6eea57ba85f9c0620478827209c3316f77a3ebe9d140da9ba', 'erik', 'erik', 'erik@gmail.com', '12345678', 1, '15KA8EmTj1Q9+9HtVRXueg==', NULL),
-       ('e6a1f9acda8f7ca6eea57ba85f9c0620478827209c3316f77a3ebe9d140da9ba', 'kevin', 'kevin', 'kevin@gmail.com',
-        '12345678', 1, '15KA8EmTj1Q9+9HtVRXueg==', NULL),
-       ('e6a1f9acda8f7ca6eea57ba85f9c0620478827209c3316f77a3ebe9d140da9ba', 'john', 'john', 'john@gmail.com',
-        '12345678', 1, '15KA8EmTj1Q9+9HtVRXueg==', NULL),
-       ('e6a1f9acda8f7ca6eea57ba85f9c0620478827209c3316f77a3ebe9d140da9ba', 'ole', 'ole', 'ole@gmail.com', '12345678', 1, '15KA8EmTj1Q9+9HtVRXueg==', NULL),
-       ('e6a1f9acda8f7ca6eea57ba85f9c0620478827209c3316f77a3ebe9d140da9ba', 'hans', 'hans', 'hans@gmail.com',
-        '12345678', 1, '15KA8EmTj1Q9+9HtVRXueg==', NULL),
-       ('e6a1f9acda8f7ca6eea57ba85f9c0620478827209c3316f77a3ebe9d140da9ba', 'new', 'new', 'amv.rental.test@gmail.com',
-        '12345678', 1, '15KA8EmTj1Q9+9HtVRXueg==', NULL);
+VALUES ('8f688cf27ab833161995bf2399e97d019939eb642965efc01f364294c1172c1f', 'håvard', 'håvard', 'haavard@gmail.com',
+        '12345678', 1, 'W3qALUg8uS/vlTccy9L8ow==', NULL),
+       ('8f688cf27ab833161995bf2399e97d019939eb642965efc01f364294c1172c1f', 'erik', 'erik', 'erik@gmail.com', '12345678', 1, 'W3qALUg8uS/vlTccy9L8ow==', NULL),
+       ('8f688cf27ab833161995bf2399e97d019939eb642965efc01f364294c1172c1f', 'shabnam', 'shabnam', 'shabnam@gmail.com',
+        '12345678', 1, 'W3qALUg8uS/vlTccy9L8ow==', NULL),
+       ('8f688cf27ab833161995bf2399e97d019939eb642965efc01f364294c1172c1f', 'aksel', 'aksel', 'aksel@gmail.com',
+        '12345678', 1, 'W3qALUg8uS/vlTccy9L8ow==', NULL),
+       ('8f688cf27ab833161995bf2399e97d019939eb642965efc01f364294c1172c1f', 'fredrik', 'fredrik', 'fredrik@gmail.com', '12345678', 1, 'W3qALUg8uS/vlTccy9L8ow==', NULL),
+       ('8f688cf27ab833161995bf2399e97d019939eb642965efc01f364294c1172c1f', 'biodiscovery', 'biodiscovery', 'biodiscovery@gmail.com',
+        '12345678', 1, 'W3qALUg8uS/vlTccy9L8ow==', NULL),
+       ('8f688cf27ab833161995bf2399e97d019939eb642965efc01f364294c1172c1f', 'new', 'new', 'new@gmail.com',
+        '12345678', 1, 'W3qALUg8uS/vlTccy9L8ow==', NULL);
 

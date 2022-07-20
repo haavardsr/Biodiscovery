@@ -33,6 +33,7 @@
 
                     <input type="password" class="form-control" id="exampleInputPassword1" aria-describedby="passwordHelp" placeholder="Enter password" name="password" required>
                     <h6 class="mt-3">Glemt ditt passord? <a href="forgotpassword">Trykk her</a></h6>
+                    <h6 class="mt-3">Lag ny bruker? <a href="createUser.jsp">Trykk her</a></h6>
 
                 </div>
                 <button class="btn btn-primary" type="submit">

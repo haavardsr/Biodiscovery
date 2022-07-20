@@ -23,13 +23,7 @@ public class createUser extends Servlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
         request.setAttribute("title", "legg til Bruker");
-        super.setCSRF(request);
-        if (Validation.isSuperUser(request)) {
-            request.getRequestDispatcher("createUser.jsp").forward(request, response);
-        } else {
-            request.getSession().setAttribute("error", "Du må logge inn for å få tilgang til andre sider");
-            response.sendRedirect("login");
-        }
+        request.getRequestDispatcher("createUser.jsp").forward(request, response);
     }
 
 
@@ -152,6 +146,7 @@ public class createUser extends Servlet {
 
         }
         session.setAttribute("error", "En feil har oppstått!");
+        return;
     }
 }
 
