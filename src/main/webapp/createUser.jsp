@@ -4,18 +4,18 @@
 <jsp:include page="/header.jsp"/>
 <%@ page contentType="text/html;charset=UTF-8" %>
 
-<link rel="stylesheet" href="css/createEmployee.css">
+<link rel="stylesheet" href="css/createUser.css">
 
 <div class="container media-no-padding">
     <div  class="row d-flex justify-content-center align-items-center p-0 m-0 main-section">
-        <img class="image-cover" src="https://s3.amazonaws.com/upload.uxpin/files/1159501/1120188/image-1854303b3639c8a2b889df6e9a5812b2-83640f.png" alt="">
+        <img class="media/Biodiscovery/pd19batch37-053-gloy.jpg" alt="">
 
-        <div id="create-ansatt-section" class="col main pt-5 mt-3 dynamic-section active-section">
+        <div id="create-user-section" class="col main pt-5 mt-3 dynamic-section active-section">
 
             <div id="picture_form">
-                <form id="create-ansatt-form" action="createEmployee" method="POST" >
+                <form id="create-user-form" action="createUser" method="POST" >
                     <fieldset class="form-group">
-                        <h3 class="border-bottom mb-4 text-center headtext">Ansatt Skjema</h3>
+                        <h3 class="border-bottom mb-4 text-center headtext">Bruker Skjema</h3>
 
                         <div class="form-row">
                             <div id="div_id_first_name" class="form-group col-md-6 text-left">
@@ -92,16 +92,8 @@
 
                         <div class="form-group justify-content-around">
                             <div id="div_id_is_union" class="form-check">
-                                <input type="checkbox" name="is_union" class="checkboxinput form-check-input" id="id_is_union">
-                                <label for="id_is_union" class="form-check-label requiredField" id="union_employee">
-                                    Union ansatt
                                 </label>
                             </div>
-                            <div id="div_id_is_superuser" class="form-check">
-                                <input type="checkbox" name="is_superuser" class="checkboxinput form-check-input" id="id_is_superuser">
-                                <label for="id_is_superuser" class="form-check-label requiredField" id="administrator">
-                                    Administrator
-                                </label>
                             </div>
                         </div>
                         <input type="hidden" name="csrf" value="<% out.print(session.getAttribute("csrf")); %>">
