@@ -79,17 +79,6 @@
                             </div>
 
                         </div>
-
-
-                        <select id="types" name="types" class="selectpicker"
-                                data-live-search="true" data-selected-text-format="count"
-                                data-count-selected-text="({0} types chosen)" data-size="10"
-                                data-actions-box="true"
-                                title="Choose type of equipment the employee is allowed to rent" data-width="100%"
-                                multiple="multiple">
-                        </select>
-
-
                         <div class="form-group justify-content-around">
                             <div id="div_id_is_union" class="form-check">
                                 </label>

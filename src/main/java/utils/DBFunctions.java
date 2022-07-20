@@ -16,13 +16,13 @@ public class DBFunctions {
         return single;
     }
 
-    public static void storeEmployee(String first_name, String last_name, String email, String tlf, String superuser, String password1) throws Exception {
+    public static void storeUser(String first_name, String last_name, String email, String tlf, String superuser, String password1) throws Exception {
         PreparedStatement ps;
         Connection db;
         String salt = SecureUtils.makeSalt();
         String hash = SecureUtils.makePassword(password1, salt);
         db = DBUtils.getINSTANCE().getConnection();
-        String query = "INSERT INTO user (first_name, last_name, email, tlf, password, is_superuser, salt) values (?,?,?,?,?,?,?,?)";
+        String query = "INSERT INTO user (first_name, last_name, email, tlf, password, is_superuser, salt) values (?,?,?,?,?,?,?)";
         ps = db.prepareStatement(query);
 
         ps.setString(1, first_name);
@@ -32,50 +32,6 @@ public class DBFunctions {
         ps.setString(5, hash);
         ps.setBoolean(6, superuser.equals("on"));
         ps.setString(7, salt);
-
-
-        ps.execute();
-    }
-
-
-    public static void updateEmployee(int id, String first_name, String last_name, String email, String tlf, String superuser, String password1) throws SQLException, ClassNotFoundException {
-        PreparedStatement ps;
-        Connection db;
-        String salt = SecureUtils.makeSalt();
-        String hash = SecureUtils.makePassword(password1, salt);
-        try {
-            db = DBUtils.getINSTANCE().getConnection();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        String query = "update user set first_name = ?, last_name=?, email=?, tlf=?,password=?,  is_union=?, is_superuser=?, salt=? where id=?";
-        ps = db.prepareStatement(query);
-
-        ps.setString(1, first_name);
-        ps.setString(2, last_name);
-        ps.setString(3, email);
-        ps.setString(4, tlf);
-        ps.setString(5, hash);
-        ps.setBoolean(6, superuser.equals("on"));
-        ps.setString(7, salt);
-        ps.setInt(8, id);
-        ps.execute();
-    }
-
-    public static void updateEmployee(int id, String first_name, String last_name, String email, String tlf, String superuser) throws Exception {
-        PreparedStatement ps;
-        Connection db;
-        db = DBUtils.getINSTANCE().getConnection();
-        String query = "update user set first_name = ?, last_name=?, email=?, tlf=?, is_superuser=? where id=?";
-
-        ps = db.prepareStatement(query);
-
-        ps.setString(1, first_name);
-        ps.setString(2, last_name);
-        ps.setString(3, email);
-        ps.setString(4, tlf);
-        ps.setBoolean(5, superuser.equals("on"));
-        ps.setInt(6, id);
 
 
         ps.execute();
