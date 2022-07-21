@@ -27,8 +27,7 @@ public class createUser extends Servlet {
     }
 
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
         HttpSession session = request.getSession();
@@ -38,118 +37,98 @@ public class createUser extends Servlet {
         String finalResult;
 
 
-        if (Validation.isSuperUser(request) && super.verifiyCSRF(request)) {
-            String first_name = request.getParameter("first_name");
-            String last_name = request.getParameter("last_name");
-            String email = (request.getParameter("email")).toLowerCase();
-            String tlf = (request.getParameter("tlf"));
-            String superuser = (request.getParameter("is_superuser"));
-            if (superuser == null) {
-                superuser = "off";
+        //   if (Validation.isSuperUser(request) && super.verifiyCSRF(request)) {
+        String first_name = request.getParameter("first_name");
+        String last_name = request.getParameter("last_name");
+        String email = (request.getParameter("email")).toLowerCase();
+        String tlf = (request.getParameter("tlf"));
+        String superuser = (request.getParameter("is_superuser"));
+        if (superuser == null) {
+            superuser = "off";
+        }
+        String password1 = request.getParameter("password1");
+        String password2 = request.getParameter("password2");
+
+        String[] selected = request.getParameterValues("types");
+
+
+        ArrayList<Integer> types = new ArrayList<>();
+        if (selected != null) {
+            for (String type_Id : selected) {
+                types.add(Integer.parseInt(type_Id));
             }
-            String password1 = request.getParameter("password1");
-            String password2 = request.getParameter("password2");
+        }
 
-            String[] selected = request.getParameterValues("types");
-
-
-            ArrayList<Integer> types = new ArrayList<>();
-            if (selected != null) {
-                for (String type_Id : selected) {
-                    types.add(Integer.parseInt(type_Id));
-                }
-            }
-
-            if (first_name.equals("")) {
-                finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Ugyldig fornavn"));
+        if (first_name.equals("")) {
+            finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Ugyldig fornavn"));
+            pw.print(finalResult);
+            pw.close();
+        } else {
+            if (last_name.equals("")) {
+                finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Ugyldig etternavn"));
                 pw.print(finalResult);
                 pw.close();
             } else {
-                if (last_name.equals("")) {
-                    finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Ugyldig etternavn"));
+                if (email.equals("")) {
+                    finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Ugyldig e-post addresse"));
                     pw.print(finalResult);
                     pw.close();
                 } else {
-                    if (email.equals("")) {
-                        finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Ugyldig e-post addresse"));
+
+                    if (!Validation.validatePasswords(password1, password2)) {
+                        finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Passordene stemmer ikke med hverandre! De må være helt like. Prøv igjen"));
                         pw.print(finalResult);
                         pw.close();
-                    } else {
 
-                        if (!Validation.validatePasswords(password1, password2)) {
-                            finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Passordene stemmer ikke med hverandre! De må være helt like. Prøv igjen"));
+
+                    } else {
+                        Connection db = null;
+                        PreparedStatement ps;
+                        try {
+                            DBFunctions.storeEmployee(first_name, last_name, email, tlf, superuser, password1);
+
+                            String q = "select last_insert_id() as user_id";
+                            db = DBUtils.getINSTANCE().getConnection();
+                            ;
+                            ps = db.prepareStatement(q);
+                            ResultSet rs = ps.executeQuery();
+                            int userId = 0;
+                            if (rs.next()) {
+                                userId = rs.getInt("user_id");
+
+                            }
+                            finalResult = json.toJson(DBFunctions.singleKeyValueToJson("success", "Bruker ble opprettet!"));
                             pw.print(finalResult);
                             pw.close();
 
 
-                        } else {
-                            Connection db = null;
-                            PreparedStatement ps;
-                            try {
-                                DBFunctions.storeEmployee(first_name, last_name, email, tlf, superuser, password1);
+                        } catch (SQLException | ClassNotFoundException e) {
 
-                                String q = "select last_insert_id() as user_id";
-                                db = DBUtils.getINSTANCE().getConnection();
-                                ;
-                                ps = db.prepareStatement(q);
-                                ResultSet rs = ps.executeQuery();
-                                int userId = 0;
-                                if (rs.next()) {
-                                    userId = rs.getInt("user_id");
-                                }
+                            e.printStackTrace();
+                            if (e instanceof SQLIntegrityConstraintViolationException) {
 
-                                if (userId != 0) {
-
-                                    String query2 = "insert into (user_id) values (?,?,?) on duplicate KEY UPDATE user_id=?";
-                                    ps = db.prepareStatement(query2);
-                                    for (int i : types) {
-                                        ps.setInt(1, userId);
-                                        ps.setInt(2, userId);
-                                        ps.execute();
-                                    }
-
-                                }
-                                finalResult = json.toJson(DBFunctions.singleKeyValueToJson("success", "Bruker ble opprettet!"));
+                                finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Bruker med samme e-post adresse eksisterer allerede!"));
                                 pw.print(finalResult);
                                 pw.close();
 
 
-                            } catch (SQLException | ClassNotFoundException e) {
-
-                                e.printStackTrace();
-                                if (e instanceof SQLIntegrityConstraintViolationException) {
-
-                                    finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Bruker med samme e-post adresse eksisterer allerede!"));
-                                    pw.print(finalResult);
-                                    pw.close();
+                            } else {
 
 
-                                } else {
+                                finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Noe gikk galt! Vennligst prøv senere. (error-code: 500)"));
+                                pw.print(finalResult);
+                                pw.close();
 
-
-                                    finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Noe gikk galt! Vennligst prøv senere. (error-code: 500)"));
-                                    pw.print(finalResult);
-                                    pw.close();
-
-
-                                }
-
-                            } catch (Exception e) {
-                                throw new RuntimeException(e);
                             }
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
                         }
-
                     }
                 }
             }
-
-
         }
-        session.setAttribute("error", "En feil har oppstått!");
-        return;
     }
 }
-
 
 
 

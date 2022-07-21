@@ -22,7 +22,7 @@ public class DBFunctions {
         String salt = SecureUtils.makeSalt();
         String hash = SecureUtils.makePassword(password1, salt);
         db = DBUtils.getINSTANCE().getConnection();
-        String query = "INSERT INTO user (first_name, last_name, email, tlf, password, is_superuser, salt) values (?,?,?,?,?,?,?,?)";
+        String query = "INSERT INTO user (first_name, last_name, email, tlf, password, is_superuser, salt) values (?,?,?,?,?,?,?)";
         ps = db.prepareStatement(query);
 
         ps.setString(1, first_name);
