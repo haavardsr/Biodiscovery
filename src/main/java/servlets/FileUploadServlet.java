@@ -25,7 +25,6 @@ import models.User;
 public class FileUploadServlet extends Servlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
         request.setAttribute("title", "fileUpload");
