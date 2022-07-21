@@ -1,17 +1,11 @@
-# Java base skeleton for web application
+# Java Base Biodiscovery Web Application
 This application uses Docker to manage maven, tomcat and mariadb to build and host a web application using Java.
-It should serve as a base for further development throughout the course.
 
 <br>
 
-## Notice
-Please read and understand how the dockerfile works. 
-Understand that all scripts used (`build.*` & `startDb.*`) can be run in the terminal without the scripts.
-I recommend getting familiar with executing docker commands in the terminal before using the scripts.
-
 ## How to use
 ### Prerequisites:
-To make this work, you need to have [Docker](https://www.docker.com/) installed and running on your system.    
+To deploy the website, you need to have [Docker](https://www.docker.com/) installed and running on your system.    
 
 ### Via commandline with docker (Recommended):
 Compile and pacakge source code with maven in docker.
@@ -39,7 +33,7 @@ Compile and pacakge source code with maven in docker.
 `docker exec -it mariadb mysql -p`    
 When prompted enter the password (`12345`), then type or copy in the SQL from [this file](databaseskript/Biodiscovery.sql) (line by line).
 
-##### 5. Test out the skeleton at http://localhost:8081/bacit-web-1.0-SNAPSHOT/
+##### 5. Test out the skeleton at http://localhost:8081/
 
 <br>
 
@@ -51,10 +45,12 @@ The scripts allow us to build and deploy our application faster, which can be be
 |Run `build.sh` to compile source code and build tomcat docker image.|Run `build.cmd` to compile source code and build tomcat docker image.|
 |Run `startDb.sh` to start database|Run `startDb.cmd` to start database|
 
+When those have been run you should be able to access the website at http://localhost:8081/ or http://<ip_adress>:8081/ if you have deployed it at a virtual server.
+
+
 > Note: On Unix and Unix-like systems (Mac and Linux) you might need to run the scripts with `sudo` to make them work.
 
 <br>
 
 #### PS
-Remember to recompile your code with maven after code changes. :)
-Have fun and experiment :)
+Remember to recompile your code with maven after code changes.
