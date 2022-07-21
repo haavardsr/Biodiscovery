@@ -15,7 +15,7 @@
             <div id="picture_form">
                 <form id="create-user-form" action="createUser" method="POST" >
                     <fieldset class="form-group">
-                        <h3 class="border-bottom mb-4 text-center headtext">Bruker Skjema</h3>
+                        <h3 class="border-bottom mb-4 text-center headtext">User form</h3>
 
                         <div class="form-row">
                             <div id="div_id_first_name" class="form-group col-md-6 text-left">
@@ -79,13 +79,10 @@
                             </div>
                         </div>
                         <div class="form-group justify-content-around">
-                            <div id="div_id_is_union" class="form-check">
-                                </label>
-                            </div>
                             </div>
                         <input type="hidden" name="csrf" value="<% out.print(session.getAttribute("csrf")); %>">
                         <div class="text-center">
-                            <button class="btn btn-primary button" type="submit">Lagre</button>
+                            <button class="btn btn-primary button" type="submit">Save User</button>
                         </div>
                         <!----HCNv7J4Q3VDzGuF----->
 

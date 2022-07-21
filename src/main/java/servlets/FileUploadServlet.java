@@ -39,7 +39,7 @@ public class FileUploadServlet extends Servlet {
 
             request.getRequestDispatcher("fileUpload.jsp").forward(request, response);
         }else{
-            request.getSession().setAttribute("error", "Du må logge inn for å få tilgang til andre sider");
+            request.getSession().setAttribute("error", "You need to login to access other pages");
             response.sendRedirect("login");
         }
 

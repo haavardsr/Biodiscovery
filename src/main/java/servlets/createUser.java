@@ -60,23 +60,23 @@ public class createUser extends Servlet {
         }
 
         if (first_name.equals("")) {
-            finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Ugyldig fornavn"));
+            finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Invalid first name"));
             pw.print(finalResult);
             pw.close();
         } else {
             if (last_name.equals("")) {
-                finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Ugyldig etternavn"));
+                finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Invalid last name"));
                 pw.print(finalResult);
                 pw.close();
             } else {
                 if (email.equals("")) {
-                    finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Ugyldig e-post addresse"));
+                    finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Invalid e-mail address"));
                     pw.print(finalResult);
                     pw.close();
                 } else {
 
                     if (!Validation.validatePasswords(password1, password2)) {
-                        finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Passordene stemmer ikke med hverandre! De må være helt like. Prøv igjen"));
+                        finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "The passwords do not match! They must be exactly the same. try again"));
                         pw.print(finalResult);
                         pw.close();
 
@@ -97,7 +97,7 @@ public class createUser extends Servlet {
                                 userId = rs.getInt("user_id");
 
                             }
-                            finalResult = json.toJson(DBFunctions.singleKeyValueToJson("success", "Bruker ble opprettet!"));
+                            finalResult = json.toJson(DBFunctions.singleKeyValueToJson("success", "User is created!"));
                             pw.print(finalResult);
                             pw.close();
 
@@ -107,7 +107,7 @@ public class createUser extends Servlet {
                             e.printStackTrace();
                             if (e instanceof SQLIntegrityConstraintViolationException) {
 
-                                finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Bruker med samme e-post adresse eksisterer allerede!"));
+                                finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "User with the same e-mail address already exists!"));
                                 pw.print(finalResult);
                                 pw.close();
 
@@ -115,7 +115,7 @@ public class createUser extends Servlet {
                             } else {
 
 
-                                finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Noe gikk galt! Vennligst prøv senere. (error-code: 500)"));
+                                finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Something went wrong! Please try again later. (error code: 500)"));
                                 pw.print(finalResult);
                                 pw.close();
 
