@@ -6,6 +6,7 @@ import javax.sql.rowset.serial.SerialBlob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import models.User;
 
 public class FileDAO {
 

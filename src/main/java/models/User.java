@@ -36,8 +36,7 @@ public class User {
         this.salt = salt;
     }
 
-    public int getId() {
-        return id;
+    public int getId() {return id;
     }
 
     public void setId(int id) {

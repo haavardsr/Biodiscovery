@@ -1,5 +1,8 @@
 package servlets;
 
+import org.apache.xmlbeans.impl.xb.xsdschema.Attribute;
+import org.yaml.snakeyaml.events.Event;
+import utils.CSRF;
 import utils.HtmlHelper;
 import utils.Validation;
 import java.io.File;
@@ -9,8 +12,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.attribute.UserPrincipal;
+import java.security.Principal;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import models.User;
 
 
 
@@ -51,7 +57,6 @@ public class FileUploadServlet extends Servlet {
                 String applicationPath = request.getServletContext().getRealPath("");
                 // constructs path of the directory to save uploaded file
                 String uploadFilePath = applicationPath + File.separator + UPLOAD_DIR;
-
                 // creates the save directory if it does not exists
                 File fileSaveDir = new File(uploadFilePath);
                 if (!fileSaveDir.exists()) {
@@ -64,8 +69,11 @@ public class FileUploadServlet extends Servlet {
                 //Get all the parts from request and write it to the file on server
                 for (Part part : request.getParts()) {
                     fileName = getFileName(part);
-                    if (isFastqFile(fileName))
-                    part.write(uploadFilePath + File.separator + fileName);
+                    if (isFastqFile(fileName)){
+                        Principal principal = request.getUserPrincipal();
+                        part.write(uploadFilePath + File.separator + principal + fileName);
+                    }
+
 
 
                 }

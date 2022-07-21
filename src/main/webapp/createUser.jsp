@@ -83,7 +83,6 @@
                                 </label>
                             </div>
                             </div>
-                        </div>
                         <input type="hidden" name="csrf" value="<% out.print(session.getAttribute("csrf")); %>">
                         <div class="text-center">
                             <button class="btn btn-primary button" type="submit">Lagre</button>
