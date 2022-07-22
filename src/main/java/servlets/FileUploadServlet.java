@@ -3,6 +3,7 @@ package servlets;
 import org.apache.xmlbeans.impl.xb.xsdschema.Attribute;
 import org.yaml.snakeyaml.events.Event;
 import utils.CSRF;
+import utils.DBFunctions;
 import utils.HtmlHelper;
 import utils.Validation;
 import java.io.File;
@@ -64,14 +65,21 @@ public class FileUploadServlet extends Servlet {
                 logger.info("Upload File Directory="+fileSaveDir.getAbsolutePath());
 
 
-                String fileName = null;
-                //Get all the parts from request and write it to the file on server
-                for (Part part : request.getParts()) {
-                    fileName = getFileName(part);
-                    if (isFastqFile(fileName)){
-                        Principal principal = request.getUserPrincipal();
-                        part.write(uploadFilePath + File.separator + principal + fileName);
+            String fileName = null;
+            //Get all the parts from request and write it to the file on server
+            for (Part part : request.getParts()) {
+                fileName = getFileName(part);
+                if (isFastqFile(fileName)){
+                    Cookie[] cookies = request.getCookies();
+                    String email = null;
+                    for(Cookie cookie : cookies){
+                        if(cookie.getName().equals("email")){
+                            email = cookie.getValue();
+                        }
                     }
+                    User user = DBFunctions.getUser(email);
+                    part.write(uploadFilePath + File.separator + "User-ID" + user.getId() + '_' + fileName);
+                }
 
 
 

@@ -29,14 +29,14 @@
                     }
                 %>
                 <div class="form-group p-1">
-                    <label for="exampleInputEmail1">E-post addresse:</label>
+                    <label for="exampleInputEmail1">E - mail adress:</label>
 
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Skriv inn e-post" name="email" required>
-                    <small>Skriv inn din e-post adresse for å motta e-post med instruksjoner.</small>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email" required>
+                    <small>Enter your email address to receive an email with instructions.</small>
 
                 </div>
                 <button class="btn btn-primary" type="submit">
-                    Send tilbakestille e-post
+                    Send reset email
                 </button>
             </form>
         </div>

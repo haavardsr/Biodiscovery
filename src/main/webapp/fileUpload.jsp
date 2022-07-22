@@ -1,4 +1,5 @@
 <jsp:include page="header.jsp"/>
+<jsp:include page="nav.jsp"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <h1>File Upload</h1>
 <h4></h4>

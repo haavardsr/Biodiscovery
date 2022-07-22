@@ -44,6 +44,8 @@ public class LoginServlet extends Servlet {
             String email = (String) request.getParameter("email"); /*Taking the input of mail and pw*/
             String password = (String) request.getParameter("password");
             HttpSession session = request.getSession();
+            Cookie c = new Cookie("email",email);
+            response.addCookie(c);
 
             if(Validation.validateUser(email, password)){
                 session.setAttribute("email", email);/*saving  the attribute for later*/
