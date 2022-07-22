@@ -9,5 +9,6 @@
 <body>
 <%-- Using JSP EL to get message attribute value from request scope --%>
 <h2>${requestScope.message}</h2>
+<h3 class="mt-3">Upload more files? <a href="fileUpload">Click here</a></h3>
 </body>
 </html>
