@@ -1,5 +1,6 @@
 package servlets;
 
+import com.google.gson.Gson;
 import org.apache.xmlbeans.impl.xb.xsdschema.Attribute;
 import org.yaml.snakeyaml.events.Event;
 import utils.CSRF;
@@ -65,6 +66,19 @@ public class FileUploadServlet extends Servlet {
                 logger.info("Upload File Directory="+fileSaveDir.getAbsolutePath());
 
 
+//nytt
+            String file_name = request.getParameter("file_name");
+
+            Gson json = new Gson();
+            PrintWriter pw = response.getWriter();
+            String finalResult;
+
+            if (file_name.equals("")) {
+                finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Missing file name"));
+                pw.print(finalResult);
+                pw.close();
+            }
+//nytt
             String fileName = null;
             //Get all the parts from request and write it to the file on server
             for (Part part : request.getParts()) {
@@ -78,7 +92,7 @@ public class FileUploadServlet extends Servlet {
                         }
                     }
                     User user = DBFunctions.getUser(email);
-                    part.write(uploadFilePath + File.separator + "User-ID" + user.getId() + '_' + fileName);
+                    part.write(uploadFilePath + File.separator + "User-ID" + user.getId() + '_' + file_name + ".fastq");
                 }
 
 

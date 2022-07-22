@@ -43,6 +43,7 @@ public class createUser extends Servlet {
         String email = (request.getParameter("email")).toLowerCase();
         String tlf = (request.getParameter("tlf"));
         String superuser = (request.getParameter("is_superuser"));
+
         if (superuser == null) {
             superuser = "off";
         }

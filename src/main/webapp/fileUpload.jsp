@@ -12,7 +12,14 @@
      <label for='file'>Select a file:</label>
          <input type='file' id='file' name='file'>
             <button type="submit">submit</button>
-                </form>
+            <div id="div_id_file_name" class="form-group col-md-6 text-left">
+                <label for="file_name" class=" requiredField">
+                    Sample Name, Cant use underscore (_)
+                    <span class="asteriskField">*</span>
+                </label>
+            <input type="text" name="file_name" maxlength="100" class="textInput form-control" required="" id="file_name" pattern="[^_]+">
+            </div>
+            </form>
             <div class="container-fluid m-0 p-0">
                 <div  class="row d-flex justify-content-center align-items-center p-0 m-0 main-section">
                     <img class="image-cover" src="media/Biodiscovery/50026054441_f2e27e87e8_b.jpg" alt="">
