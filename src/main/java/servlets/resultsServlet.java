@@ -32,14 +32,11 @@ import java.sql.PreparedStatement;
 @WebServlet(name = "results", urlPatterns = {"/results"})
 public class resultsServlet extends Servlet {
 
-    @Override
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
         request.setAttribute("title", "results");
-        //PrintWriter out = response.getWriter();
-        //HtmlHelper.writeHtmlStart(out, "Results");
-        //HtmlHelper.writeHtmlEnd(out);
 
         super.setCSRF(request);
         if (Validation.isAuthenticated(request)) {

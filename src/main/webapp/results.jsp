@@ -5,7 +5,6 @@
     <title>Title</title>
 </head>
 <body>
-<form action="resultsServlet"></form>
 </body>
 </html>
 <jsp:include page="footer.jsp"/>
