@@ -12,7 +12,7 @@
 
         <div id="picture_form" >
             <img src="media/Biodiscovery/logo_size-1.jpg" class="img-fluid login-image" alt="logo-picture">
-            <p id="text_for_logo">Equipment rental</p>
+            <p id="text_for_logo">Reset password</p>
             <form autocomplete="off" action="/resetpassword" method = "post">
                 <input type="hidden" name="csrf" value="<% out.print(session.getAttribute("csrf")); %>">
 
@@ -30,13 +30,13 @@
                 %>
                 <div class="form-group p-1">
 
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Skriv inn din e-post" name="email" required>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email" name="email" required>
 
                 </div>
                 <div class="form-group p-1">
                     <!-- <label for="exampleInputPassword1">Password address</label> -->
 
-                    <input type="password" class="form-control" id="exampleInputPassword1" aria-describedby="passwordHelp" placeholder="Skriv inn passord" name="password1" required>
+                    <input type="password" class="form-control" id="exampleInputPassword1" aria-describedby="passwordHelp" placeholder="Enter password" name="password1" required>
 
                 </div>
                 <div class="form-group p-1">
