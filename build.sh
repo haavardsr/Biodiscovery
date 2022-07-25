@@ -10,7 +10,7 @@ docker run --rm -it --name mavenbuild -v maven-repo:/root/.m2 -v "$(pwd)":/usr/s
 docker image build -t haavard/tomcat .
 
 # Start tomcat container, making the webapp available.
-docker container run --rm -it -d --name tomcat -v /hdd2/FastqDIR:/usr/local/tomcat/FastqDIR --publish 8081:8080 haavard/tomcat
+docker container run --rm -it -d --name tomcat -v /hdd2/FastqDIR:/usr/local/tomcat/FastqDIR -v /hdd2/ResultsDIR:/usr/local/tomcat/ResultsDIR --publish 8081:8080 haavard/tomcat
 
 echo ""
 echo "Link: http://localhost:8081/"
