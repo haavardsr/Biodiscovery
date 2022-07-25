@@ -16,5 +16,5 @@ echo ""
 echo "Link: http://localhost:8081/"
 echo ""
 
-read -h-s-r-9-5- "Press any key to continue..."
+read -n 1 -s -r -p   "Press any key to continue..."
 echo ""
