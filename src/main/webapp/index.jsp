@@ -8,3 +8,5 @@
         <h3 class="mt-3">Go to login page <a href="login">Click here</a></h3>
     </div>
 </div>
+    </div>
+</div>

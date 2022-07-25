@@ -25,8 +25,8 @@ public class DBFunctions {
         String query = "INSERT INTO user (first_name, last_name, email, tlf, password, is_superuser, salt) values (?,?,?,?,?,?,?)";
         ps = db.prepareStatement(query);
 
-        ps.setString(1, first_name);
-        ps.setString(2, last_name);
+        ps.setString(1, first_name.toLowerCase());
+        ps.setString(2, last_name.toLowerCase());
         ps.setString(3, email);
         ps.setString(4, tlf);
         ps.setString(5, hash);

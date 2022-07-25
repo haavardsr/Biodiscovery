@@ -8,11 +8,11 @@
 
 <div class="container-fluid m-0 p-0">
     <div  class="row d-flex justify-content-center align-items-center p-0 m-0 main-section">
-        <img class="media/Biodiscovery/challenger-voyage-scientific-art%20(1).png" alt="">
+        <img class="media/Biodiscovery/tang" alt="">
 
         <div id="picture_form" >
             <img src="media/Biodiscovery/logo_size-1.jpg" class="img-fluid login-image" alt="logo-picture">
-            <p id="text_for_logo">Equipment rental</p>
+            <p id="text_for_logo">Reset password</p>
             <form autocomplete="off" action="/forgotpassword" method = "post">
                 <input type="hidden" name="csrf" value="<% out.print(session.getAttribute("csrf")); %>">
 
@@ -44,7 +44,6 @@
     </div>
     <div class="container-fluid m-0 p-0">
         <div class="footer w-100 m-0">
-            <h5 class="font-weight-bold text-center footer_text">Solid. Creative. Proud.</h5>
             <p class="font-weight-bold text-center">Biodiscovery AS</p>
 
         </div>

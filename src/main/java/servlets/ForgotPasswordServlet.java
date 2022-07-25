@@ -24,7 +24,7 @@ public class ForgotPasswordServlet extends Servlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         super.setCSRF(request);
         response.setContentType("text/html;charset=utf-8");
-        request.setAttribute("title", "Glemt passord");
+        request.setAttribute("title", "Forgot Password");
         request.getRequestDispatcher("forgotpassword.jsp").forward(request, response);
 
     }
@@ -33,7 +33,7 @@ public class ForgotPasswordServlet extends Servlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
-        request.setAttribute("title", "Glemt passord");
+        request.setAttribute("title", "Forgot Password");
 
         HttpSession session = request.getSession();
         String email = request.getParameter("email");
@@ -53,20 +53,20 @@ public class ForgotPasswordServlet extends Servlet {
                 ps.setString(1,token);
                 ps.setString(2,user.getEmail());
                 EmailClient.sendAsHtml(user.getEmail(),
-                        "Tilbakestille password",
-                        "<h2>Trykk på linken for å tilbakestille ditt passord </h2><a href='http://localhost:8081/resetpassword?key="+ token +"'>http://localhost:8081/restpassword?key=hei</a>");
+                        "Reset password",
+                        "<h2>Click on the link to reset your password </h2><a href='http://localhost:8081/resetpassword?key="+ token +"'>http://localhost:8081/restpassword?key=hei</a>");
 
-                session.setAttribute("success", "Vi har nå sendt en epost med instruksjoner for å tilbakestille passordet ditt.");
+                session.setAttribute("success", "We have now sent an email with instructions to reset your password.");
 
             } catch (Exception e) {
                 e.printStackTrace();
-                session.setAttribute("error", "Noe gikk galt! vennligst prøv igjen.");
+                session.setAttribute("error", "Something went wrong! please try again.");
 
             }
 
 
         } else {
-            session.setAttribute("error", "Vi fant ingen bruker med denne e-post adressen. Vennligst sjekk at du angir riktig e-post adresse.");
+            session.setAttribute("error", "We did not find any users with this e-mail address. Please check that you enter the correct email address.");
         }
         request.getRequestDispatcher("forgotpassword.jsp").forward(request, response);
 

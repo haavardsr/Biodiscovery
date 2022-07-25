@@ -98,9 +98,7 @@ public class createUser extends Servlet {
                                 userId = rs.getInt("user_id");
 
                             }
-                            finalResult = json.toJson(DBFunctions.singleKeyValueToJson("success", "User is created!"));
-                            pw.print(finalResult);
-                            pw.close();
+                            response.sendRedirect("login");
 
 
                         } catch (SQLException | ClassNotFoundException e) {

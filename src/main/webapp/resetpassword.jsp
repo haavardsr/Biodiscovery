@@ -1,4 +1,4 @@
-<jsp:include page="header.jsp"/>
+<jsp:include page="/header.jsp"/>
 <%@ page contentType="text/html;charset=UTF-8" %>
 
 
@@ -8,12 +8,12 @@
 
 <div class="container-fluid m-0 p-0">
     <div  class="row d-flex justify-content-center align-items-center p-0 m-0 main-section">
-        <img class="media/Biodiscovery/challenger-voyage-scientific-art%20(1).png" alt="">
+        <img class="image-cover" src="media/Biodiscovery/tang.jpg" alt="">
 
         <div id="picture_form" >
-            <img src="media/Biodiscovery/challenger-voyage-scientific-art%20(1).png" class="img-fluid login-image" alt="logo-picture">
+            <img src="media/Biodiscovery/logo_size-1.jpg" class="img-fluid login-image" alt="logo-picture">
             <p id="text_for_logo">Equipment rental</p>
-            <form autocomplete="off" action="resetpassword" method = "post">
+            <form autocomplete="off" action="/resetpassword" method = "post">
                 <input type="hidden" name="csrf" value="<% out.print(session.getAttribute("csrf")); %>">
 
                 <%
@@ -46,9 +46,13 @@
 
                 </div>
                 <button class="btn btn-primary" type="submit">
-                    Tilbakestille
+                    Reset
                 </button>
             </form>
         </div>
 
-<jsp:include page="footer.jsp"/>
+    </div>
+    <div class="container-fluid m-0 p-0">
+        <div class="footer w-100 m-0">
+
+<jsp:include page="/footer.jsp"/>
