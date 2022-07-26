@@ -28,32 +28,25 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.logging.Logger;
 
 
-
-@WebServlet(name = "results", urlPatterns = {"/results"})
+@WebServlet(name = "results", urlPatterns = {"/results/antismash"})
 public class resultsServlet extends Servlet {
-    private static final String UPLOAD_DIR = "../../ResultsDIR/minionsample2/analysis/antismash/index.html";
+    private static final String UPLOAD_DIR = "usr/local/tomcat/webapps/results/antismash";
+    Logger logger = Logger.getLogger(resultsServlet.class.getName());
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
         request.setAttribute("title", "results");
 
-
-        // gets absolute path of the web application
-        String applicationPath = request.getServletContext().getRealPath("");
-        // constructs path of the directory to save uploaded file
-        String uploadFilePath = applicationPath + UPLOAD_DIR;
-
         super.setCSRF(request);
         if (Validation.isAuthenticated(request)) {
-            request.getRequestDispatcher(uploadFilePath).forward(request, response);
 
         } else {
             request.getSession().setAttribute("error", "You need to login to access other pages");
             response.sendRedirect("login");
         }
-
     }
 }
