@@ -92,7 +92,7 @@ public class FileUploadServlet extends Servlet {
                         }
                     }
                     User user = DBFunctions.getUser(email);
-                    part.write(uploadFilePath + File.separator + "User-ID" + user.getId() + '_' + file_name + ".fastq");
+                    part.write(uploadFilePath + File.separator + user.getId() + '_' + file_name + ".fastq");
                 }
 
 
