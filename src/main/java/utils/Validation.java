@@ -94,7 +94,7 @@ public class Validation {
         //This line will throw an exception if it is not a signed JWS (as expected)
 
         return Jwts.parserBuilder()
-                .setSigningKey("secretkeygroup11amvuiasecretkeygroup11amvuiasecretkeygroup11amvuiasecretkeygroup11amvuia")
+                .setSigningKey("secretkeygroup11biodiscoverysecretkeygroup11biodiscoverysecretkeygroup11biodiscoverysecretkeygroup11biodiscovery")
                 .build()
                 .parseClaimsJws(jwt);
     }
@@ -110,7 +110,7 @@ public class Validation {
         Date then = new Date(thenmillis);
 
         //We will sign our JWT with our ApiKey secret
-        byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary("secretkeygroup11amvuiasecretkeygroup11amvuiasecretkeygroup11amvuiasecretkeygroup11amvuia");
+        byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary("secretkeygroup11biodiscoverysecretkeygroup11biodiscoverysecretkeygroup11biodiscoverysecretkeygroup11biodiscovery");
         Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
 
         //Let's set the JWT Claims

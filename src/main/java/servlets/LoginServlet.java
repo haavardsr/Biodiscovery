@@ -25,7 +25,7 @@ public class LoginServlet extends Servlet {
         super.setCSRF(request);
         response.setContentType("text/html;charset=utf-8");
 
-        request.setAttribute("title", "Logg inn");
+        request.setAttribute("title", "Log inn");
 
         request.getRequestDispatcher("login.jsp").forward(request, response);
 

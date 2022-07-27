@@ -36,6 +36,16 @@ create table Categories (
   CONSTRAINT PRIMARY KEY (Id)
 );
 
+create table result
+(
+    id              INT          NOT NULL,
+    sample		  VARCHAR(255) NOT NULL,
+    input_path      VARCHAR(255) NOT NULL,
+    output_path 	  VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id, sample)
+)
+    CHARSET = utf8mb3;
+
 create table files(
     Id              integer UNIQUE auto_increment,
     Name            varchar(255) not null,
@@ -48,14 +58,5 @@ create table files(
 INSERT INTO user (password, first_name, last_name, email, tlf, is_superuser, salt, verificationKey)
 VALUES ('8f688cf27ab833161995bf2399e97d019939eb642965efc01f364294c1172c1f', 'håvard', 'håvard', 'haavard@gmail.com',
         '12345678', 1, 'W3qALUg8uS/vlTccy9L8ow==', NULL),
-       ('8f688cf27ab833161995bf2399e97d019939eb642965efc01f364294c1172c1f', 'erik', 'erik', 'erik@gmail.com', '12345678', 1, 'W3qALUg8uS/vlTccy9L8ow==', NULL),
-       ('8f688cf27ab833161995bf2399e97d019939eb642965efc01f364294c1172c1f', 'shabnam', 'shabnam', 'shabnam@gmail.com',
-        '12345678', 1, 'W3qALUg8uS/vlTccy9L8ow==', NULL),
-       ('8f688cf27ab833161995bf2399e97d019939eb642965efc01f364294c1172c1f', 'aksel', 'aksel', 'aksel@gmail.com',
-        '12345678', 1, 'W3qALUg8uS/vlTccy9L8ow==', NULL),
-       ('8f688cf27ab833161995bf2399e97d019939eb642965efc01f364294c1172c1f', 'fredrik', 'fredrik', 'fredrik@gmail.com', '12345678', 1, 'W3qALUg8uS/vlTccy9L8ow==', NULL),
-       ('8f688cf27ab833161995bf2399e97d019939eb642965efc01f364294c1172c1f', 'biodiscovery', 'biodiscovery', 'biodiscovery@gmail.com',
-        '12345678', 1, 'W3qALUg8uS/vlTccy9L8ow==', NULL),
-       ('8f688cf27ab833161995bf2399e97d019939eb642965efc01f364294c1172c1f', 'new', 'new', 'new@gmail.com',
-        '12345678', 1, 'W3qALUg8uS/vlTccy9L8ow==', NULL);
+       ('8f688cf27ab833161995bf2399e97d019939eb642965efc01f364294c1172c1f', 'erik', 'erik', 'erik@gmail.com', '12345678', 1, 'W3qALUg8uS/vlTccy9L8ow==', NULL);
 

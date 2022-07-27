@@ -22,7 +22,7 @@ public class createUser extends Servlet {
 
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
-        request.setAttribute("title", "legg til Bruker");
+        request.setAttribute("title", "Add user");
         request.getRequestDispatcher("createUser.jsp").forward(request, response);
     }
 
