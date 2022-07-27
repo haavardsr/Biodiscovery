@@ -23,7 +23,7 @@
             <input type="text" name="file_name" maxlength="100" class="textInput form-control" required="" id="file_name" pattern="[^_]+">
             </div>
             </form>
-            <div  class="row d-flex justify-content-center align-items-center p-0 m-0 main-section">
+            <div class="row d-flex justify-content-center align-items-center p-0 m-0 main-section">
                 <img class="image-cover" src="media/Biodiscovery/tanggronn.jpg" alt="">
             </div>
 <jsp:include page="footer.jsp"/>

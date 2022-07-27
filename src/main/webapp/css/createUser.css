@@ -57,3 +57,12 @@
     }
 }
 
+.footer{
+    position: relative;
+    bottom: 0;
+    height:15%;
+    background-color: #93dbce;
+    color: #000000;
+    line-height: 5px;
+}
+
