@@ -41,6 +41,5 @@
                 </button>
             </form>
         </div>
-        <div class="container-fluid m-0 p-0">
-            <div class="footer w-100 m-0">
+
 <jsp:include page="footer.jsp"/>

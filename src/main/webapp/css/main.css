@@ -130,11 +130,11 @@ body {
 }
 
 @media only screen and (max-width: 400px ) {
-    .amv-font {
+    .biodiscovery-font {
         font-size: 1rem;
     }
 
-    .amv-font-thin {
+    .biodiscovery-font-thin {
         font-size: 1rem !important;
     }
 }

@@ -8,7 +8,7 @@
 
 <div class="container-fluid m-0 p-0">
     <div  class="row d-flex justify-content-center align-items-center p-0 m-0 main-section">
-        <img class="media/Biodiscovery/tang" alt="">
+        <img class="image-cover" src="media/Biodiscovery/tang.jpg" alt="">
 
         <div id="picture_form" >
             <img src="media/Biodiscovery/logo_size-1.jpg" class="img-fluid login-image" alt="logo-picture">
@@ -39,14 +39,6 @@
                     Send reset email
                 </button>
             </form>
-        </div>
-
-    </div>
-    <div class="container-fluid m-0 p-0">
-        <div class="footer w-100 m-0">
-            <p class="font-weight-bold text-center">Biodiscovery AS</p>
-
-        </div>
     </div>
 </div>
 
