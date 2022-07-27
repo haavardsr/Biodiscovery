@@ -11,16 +11,89 @@
     margin-top: 7.5px;
 }
 
-button {
-    background-size: cover;
-    text-align: center;
+
+
+.login-image{
+    background-size: auto;
+    width: 275px;
+    height: 90px;
+    filter: drop-shadow(6px 1px 1px rgba(0,0,0,0.2));
+    display: block;
+    margin-top: 22px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 2;
+}
+
+#text_for_logo{
     font-family: Arial, sans-serif;
     font-size: 20px;
-    height: 45px;
-    width: 228px;
-    left: 50%;
-    transform: translate(-50%, 0);
-    border-radius: 10px;
-    z-index: auto;
-    position: absolute;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000c57;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 10px;
 }
+
+#picture_form{
+    background-color: #93dbce;
+    width: 334px;
+    height: 394px;
+    box-shadow: 0px 1px 2px rgba(255,255,255,0.2);
+    z-index: -1;
+    margin: auto;
+
+}
+
+.form-group{
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-right: 22px;
+}
+
+
+.image-cover{
+    width: 100%;
+    background-repeat: no-repeat;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    margin: 0;
+    height: 100%;
+}
+
+
+.main-section{
+    height: 85%;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+    #picture_form{
+        width: 100%! important;
+    }
+    body{
+        width: 100%;
+    }
+}
+
+.footer{
+    position: relative;
+    bottom: 0;
+    height:15%;
+    background-color: #93dbce;
+    color: #000000;
+    line-height: 5px;
+}
+
+.footer_text {
+    margin-top: 7.5px;
+}
+
+
+
+
+

@@ -8,7 +8,7 @@
 
 <div class="container media-no-padding">
     <div  class="row d-flex justify-content-center align-items-center p-0 m-0 main-section">
-        <img class="media/Biodiscovery/pd19batch37-053-gloy.jpg" alt="">
+        <img class="media/Biodiscovery/tanggronn.jpg" alt="">
 
         <div id="create-user-section" class="col main pt-5 mt-3 dynamic-section active-section">
 

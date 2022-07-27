@@ -9,9 +9,10 @@
 <div class="container-fluid m-0 p-0">
     <div  class="row d-flex justify-content-center align-items-center p-0 m-0 main-section">
         <img class="image-cover" src="media/Biodiscovery/tang.jpg" alt="">
-
         <div id="picture_form" >
-            <img src="media/Biodiscovery/logo_size-1.jpg" class="img-fluid login-image" alt="logo-picture">
+
+
+
             <p id="text_for_logo">Reset password</p>
             <form autocomplete="off" action="/forgotpassword" method = "post">
                 <input type="hidden" name="csrf" value="<% out.print(session.getAttribute("csrf")); %>">

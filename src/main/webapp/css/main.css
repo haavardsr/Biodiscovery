@@ -120,7 +120,7 @@ body {
     margin-bottom: 1.5rem !important;
 }
 
-.bicdiscovery-font {
+.biodiscovery-font {
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
     font-style: normal;
@@ -259,10 +259,6 @@ button:hover {
     nav ul {
         padding-bottom: 20px !important;
     }
-}
-
-#delete-employee-modal, #delete-equipment-modal, #report-modal {
-    z-index: 10000;
 }
 
 @media screen and (max-width: 500px) {
@@ -531,27 +527,6 @@ button:hover {
     }
 }
 
-@media only screen and (min-width: 800px ) {
-    .view-equip-img {
-        height: 484px;
-        width: 100%;
-
-    }
-}
-
-@media only screen and (max-width: 800px ) {
-    .view-equip-img {
-        height: 200px;
-        width: 100%;
-    }
-}
-
-@media only screen and (max-width: 280px) {
-    .view-equip-img {
-        height: 140px;
-        width: 100%;
-    }
-}
 
 .rent-btn:hover {
     transform: scale(1.03);
@@ -565,7 +540,7 @@ button:hover {
     background-color:#ffffff5c!important;
 }
 
-.biod-btn-update{
+.biodiscovery-btn-update{
     background-color: #11165a;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     color: white !important;
@@ -597,11 +572,11 @@ table.dataTable{
     border-spacing: 0px 2px!important;
 }
 .biodiscovery-nav{
-    background-color: #ffb300;
+    background-color: #93dbce;
     border-bottom: 1px solid #11165a;
     font-size: 1.30rem!important;
     z-index: 100;
-    position:fixed;
+    right: 10px;
     width:100%;
 }
 

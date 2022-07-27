@@ -4,12 +4,12 @@
     </div>
     <div class="sides"> <a href="#" class="menu"> </a></div>
     <div class="info">
-        <h1>Biodiscovery</h1>
+            <img src="media/Biodiscovery/logo.png" class="" alt="logo-picture">
         <div class="meta">
         </div>
     </div>
 </div>
 <section class="content">
-    <p>The sea cures all ailments of man</p>
-    </p>
+    <h4> The sea cures all ailments of man </h4>
 </section>
+</div>

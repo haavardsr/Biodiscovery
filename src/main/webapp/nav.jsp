@@ -3,7 +3,7 @@
   </a>
     <ul class="navbar-nav">
       <li class="nav-item ">
-        <a class="nav-link biodiscovery-color .biodiscovery-logout biodiscovery-font" href="logout">Log out <i class="fas fa-sign-out-alt"></i></a>
+        <a class="nav-link biodiscovery-color biodiscovery-logout biodiscovery-font" href="logout">Log out <i class="fas fa-sign-out-alt"></i></a>
       </li>
     </ul>
   </div>

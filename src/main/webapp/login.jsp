@@ -8,10 +8,10 @@
 
 <div class="container-fluid m-0 p-0">
     <div  class="row d-flex justify-content-center align-items-center p-0 m-0 main-section">
-        <img class="image-cover" src="media/Biodiscovery/pd19batch37-053-gloy.jpg" alt="">
+        <img class="image-cover" src="media/Biodiscovery/tanggronn.jpg" alt="">
 
         <div id="picture_form" >
-            <img src="media/Biodiscovery/logo_size-1.jpg" class="img-fluid login-image" alt="logo-picture">
+            <img src="" class="" alt="">
             <p id="text_for_logo">Log in</p>
             <form autocomplete="off" action="login" method = "post">
                 <input type="hidden" name="csrf" value="<% out.print(session.getAttribute("csrf")); %>">
@@ -41,5 +41,5 @@
                 </button>
             </form>
         </div>
-
+    </div>
 <jsp:include page="footer.jsp"/>
