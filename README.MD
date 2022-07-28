@@ -20,7 +20,7 @@ Compile and pacakge source code with maven in docker.
 
 
 ##### 2. Build then start the docker container with the web application:    
-`docker image build -t trym/tomcat .`    
+`docker image build -t biodiscovery/tomcat .`    
 `docker container run --rm -it -d --name tomcat --publish 8081:8080 trym/tomcat`
 
 ##### 3. Start a mariadb container using the localdirectory "database" to store the data:    
@@ -33,7 +33,7 @@ Compile and pacakge source code with maven in docker.
 `docker exec -it mariadb mysql -p`    
 When prompted enter the password (`12345`), then type or copy in the SQL from [this file](databaseskript/Biodiscovery.sql) (line by line).
 
-##### 5. Test out the skeleton at http://localhost:8081/
+##### 5. Test out the swebpage at http://localhost:8081/
 
 <br>
 
