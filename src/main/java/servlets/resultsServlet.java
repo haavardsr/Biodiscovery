@@ -1,33 +1,12 @@
 package servlets;
 
-import com.google.gson.Gson;
-import utils.DBFunctions;
-import utils.DBUtils;
-import utils.HtmlHelper;
-import utils.Validation;
-import javax.servlet.*;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
-import java.awt.*;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.*;
-import java.util.ArrayList;
-import models.User;
-import utils.DBFunctions;
-import utils.DBUtils;
-import utils.EmailClient;
 import utils.Validation;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import java.io.IOException;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.util.logging.Logger;
 
 

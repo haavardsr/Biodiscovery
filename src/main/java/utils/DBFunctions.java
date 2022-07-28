@@ -7,7 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.ArrayList;
+
+
 
 public class DBFunctions {
     public static HashMap<String, String> singleKeyValueToJson(String key, String value) {

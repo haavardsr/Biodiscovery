@@ -1,9 +1,6 @@
 package servlets;
 
 import com.google.gson.Gson;
-import org.apache.xmlbeans.impl.xb.xsdschema.Attribute;
-import org.yaml.snakeyaml.events.Event;
-import utils.CSRF;
 import utils.DBFunctions;
 import utils.HtmlHelper;
 import utils.Validation;
@@ -14,8 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.file.attribute.UserPrincipal;
-import java.security.Principal;
 import java.util.Arrays;
 import java.util.logging.Logger;
 import models.User;

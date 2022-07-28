@@ -1,20 +1,12 @@
 package servlets;
 
-import models.User;
-import models.User;
-import utils.DBFunctions;
-import utils.DBUtils;
-import utils.SecureUtils;
 import utils.Validation;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
