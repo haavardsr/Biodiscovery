@@ -13,6 +13,9 @@ import java.io.PrintWriter;
 import java.sql.*;
 import java.util.ArrayList;
 
+/*
+Here is the servlet where users are created.
+ */
 
 @WebServlet(name = "createUser", urlPatterns = {"/createUser"})
 public class createUser extends Servlet {
@@ -59,6 +62,10 @@ public class createUser extends Servlet {
                 types.add(Integer.parseInt(type_Id));
             }
         }
+
+        /*
+        Underneath you can see different error messages dippending on what are missing from the form that the user are suppose to fill out when an user is created
+         */
 
         if (first_name.equals("")) {
             finalResult = json.toJson(DBFunctions.singleKeyValueToJson("error", "Invalid first name"));

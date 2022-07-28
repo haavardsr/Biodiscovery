@@ -23,7 +23,7 @@
                         Sample Name, Cant use underscore (_)
                         <span class="asteriskField">*</span>
                     </label>
-                    <input type="text" name="file_name" maxlength="100" class="textInput form-control" required="" id="file_name" pattern="[^_]+">'
+                    <input type="text" name="file_name" maxlength="100" class="textInput form-control" required="" id="file_name" pattern="[^_]+">
                     <button type="submit">submit</button>
                 </div>
             </form>

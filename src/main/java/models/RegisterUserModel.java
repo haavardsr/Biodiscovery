@@ -1,5 +1,9 @@
 package models;
 
+
+/*
+Model used to creat users. In here we specify what information we need about the user.
+ */
 public class RegisterUserModel {
     private String fullName;
     private String phoneNumber;

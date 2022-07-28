@@ -29,13 +29,6 @@ create table User_roles (
   primary key (LoginName, role_name)
 );
 
-create table Categories (
-  Id              integer UNIQUE auto_increment,
-  Name              varchar(255) not null,
-  ImagePath         varchar(255) not null,
-  CONSTRAINT PRIMARY KEY (Id)
-);
-
 create table result
 (
     id              INT          NOT NULL,

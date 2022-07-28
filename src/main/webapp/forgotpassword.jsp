@@ -3,7 +3,7 @@
 
 
 
-<link rel="stylesheet" href="css/forgotpassword.css.css">
+<link rel="stylesheet" href="css/forgotpassword.css">
 
 
 <div class="container-fluid m-0 p-0">

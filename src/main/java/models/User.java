@@ -1,5 +1,8 @@
 package models;
 
+/*
+Model about what information which are stored for each user. Every user will have this information in some sort stored in them.
+ */
 public class User {
     private int id;
     private String firstName;
