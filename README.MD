@@ -1,4 +1,7 @@
 # Java Base Biodiscovery Web Application
+
+This project belongs to BiodiscoveryAS
+Homepage Biodisovery.no
 This application uses Docker to manage maven, tomcat and mariadb to build and host a web application using Java.
 
 <br>
