@@ -16,6 +16,9 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
+/**
+ * Forgot Password servlet. This will see if the user has a email registered in the Database and sends an email with a token included in the link. can reset password or use the link if token is not included
+ */
 
 @WebServlet(name = "ForgotPasswordServlet", urlPatterns = {"/forgotpassword"})
 public class ForgotPasswordServlet extends Servlet {

@@ -86,6 +86,9 @@ public class FileUploadServlet extends Servlet {
                             email = cookie.getValue();
                         }
                     }
+                    /**
+                     * Name of file when uploaded.
+                     */
                     User user = DBFunctions.getUser(email);
                     part.write(uploadFilePath + File.separator + user.getId() + '_' + file_name + ".fastq");
                 }
@@ -119,8 +122,9 @@ public class FileUploadServlet extends Servlet {
         out.println("<input type='file' id='myfile' name='myfile'>");
 
 
-
-
+/**
+ * Set the file upload format. below you can see fastq is only allowed
+ */
     }
     private boolean isFastqFile(String fileName) {
         return Arrays.asList("fastq")

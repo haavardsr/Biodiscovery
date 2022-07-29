@@ -5,6 +5,10 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
+/**
+ * Below is the sender email, password given by the SMTP
+ */
+
 public class EmailClient {
     private static final String senderEmail = "Biodiscoveryas@gmail.com";
     private static final String senderPassword = "DJg57VHAwaZ3c6pd";
@@ -29,6 +33,9 @@ public class EmailClient {
         message.setSubject(title);
     }
 
+    /**
+     *SMTP info
+     */
     private static Session createSession() {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -43,6 +50,9 @@ public class EmailClient {
         });
     }
 
+    /**
+     * Test . Change Biodiscoveryas@gmail.com and try with your own email
+     */
 
     public static void main(String[] args) throws MessagingException {
         EmailClient.sendAsHtml("Biodiscoveryas@gmail.com",
