@@ -4,7 +4,7 @@
     </div>
     <div class="sides"> <a href="#" class="menu"> </a></div>
     <div class="info">
-        <a href="login.jsp"><img src="media/Biodiscovery/logo.png"></a>
+        <a href="login"><img src="media/Biodiscovery/logo.png"></a>
         <div class="meta">
         </div>
     </div>
