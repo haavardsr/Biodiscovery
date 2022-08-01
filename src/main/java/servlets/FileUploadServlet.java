@@ -61,7 +61,6 @@ public class FileUploadServlet extends Servlet {
                 logger.info("Upload File Directory="+fileSaveDir.getAbsolutePath());
 
 
-//nytt
             String file_name = request.getParameter("file_name");
 
             Gson json = new Gson();
@@ -73,7 +72,7 @@ public class FileUploadServlet extends Servlet {
                 pw.print(finalResult);
                 pw.close();
             }
-//nytt
+
             String fileName = null;
             //Get all the parts from request and write it to the file on server
             for (Part part : request.getParts()) {

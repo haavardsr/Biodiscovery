@@ -8,7 +8,7 @@
 
 <div class="container-fluid m-0 p-0">
     <div  class="row d-flex justify-content-center align-items-center p-0 m-0 main-section">
-        <img class="image-cover" src="media/Biodiscovery/tang.jpg" alt="">
+        <img class="image-cover" src="media/Biodiscovery/blae.jpg" alt="">
         <div id="picture_form" >
 
 
