@@ -77,7 +77,7 @@ public class FileUploadServlet extends Servlet {
             //Get all the parts from request and write it to the file on server
             for (Part part : request.getParts()) {
                 fileName = getFileName(part);
-                if (isFastqFile(fileName)){
+                if (isFastqFile(file_name)){
                     Cookie[] cookies = request.getCookies();
                     String email = null;
                     for(Cookie cookie : cookies){
