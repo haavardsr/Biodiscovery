@@ -91,12 +91,18 @@ public class FileUploadServlet extends Servlet {
                     User user = DBFunctions.getUser(email);
                     part.write(uploadFilePath + File.separator + user.getId() + '_' + file_name + ".fastq");
                 }
+                else {
+                    request.setAttribute("message", fileName + " File has to be fastq format");
+                    getServletContext().getRequestDispatcher("/response.jsp").forward(
+                            request, response);
+
+                }
 
 
 
                 }
 
-                request.setAttribute("message", fileName + " File uploaded successfully!");
+                request.setAttribute("message", fileName + " File uploaded successfully! You will receive and e-mail with your results");
                 getServletContext().getRequestDispatcher("/response.jsp").forward(
                       request, response);
             } catch (ServletException e) {
