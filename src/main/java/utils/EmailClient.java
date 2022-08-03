@@ -10,8 +10,8 @@ import java.util.Properties;
  */
 
 public class EmailClient {
-    private static final String senderEmail = "Biodiscoveryas@gmail.com";
-    private static final String senderPassword = "DJg57VHAwaZ3c6pd";
+    private static final String senderEmail = "";
+    private static final String senderPassword = "";
 
     public static void sendAsHtml(String to, String title, String html) throws MessagingException {
 
@@ -40,7 +40,7 @@ public class EmailClient {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp-relay.sendinblue.com");
+        props.put("mail.smtp.host", "smtp.sendgrid.net");
         props.put("mail.smtp.port", "587");
 
         return Session.getInstance(props, new Authenticator() {
@@ -55,7 +55,7 @@ public class EmailClient {
      */
 
     public static void main(String[] args) throws MessagingException {
-        EmailClient.sendAsHtml("Biodiscoveryas@gmail.com",
+        EmailClient.sendAsHtml("",
                 "Test email",
                 "<h2>Java Mail Example</h2><p>hi there!</p>");
     }
