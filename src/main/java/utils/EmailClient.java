@@ -3,6 +3,7 @@ package utils;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.FileNotFoundException;
 import java.util.Properties;
 
 /**
@@ -10,8 +11,16 @@ import java.util.Properties;
  */
 
 public class EmailClient {
-    private static final String senderEmail = "";
-    private static final String senderPassword = "";
+    private static final String senderEmail = "resetbruker@gmail.com";
+    private static final String senderPassword;
+
+    static {
+        try {
+            senderPassword = ScannerFile.getPassword();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public static void sendAsHtml(String to, String title, String html) throws MessagingException {
 
@@ -40,7 +49,7 @@ public class EmailClient {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.sendgrid.net");
+        props.put("mail.smtp.host", "smtp-relay.sendinblue.com");
         props.put("mail.smtp.port", "587");
 
         return Session.getInstance(props, new Authenticator() {
@@ -55,7 +64,7 @@ public class EmailClient {
      */
 
     public static void main(String[] args) throws MessagingException {
-        EmailClient.sendAsHtml("",
+        EmailClient.sendAsHtml("resetbruker@gmail.com",
                 "Test email",
                 "<h2>Java Mail Example</h2><p>hi there!</p>");
     }
