@@ -11,7 +11,7 @@
         <img class="image-cover" src="media/Biodiscovery/blae.jpg" alt="">
 
         <div id="picture_form" >
-            <img src="media/Biodiscovery/logo_size-1.jpg" class="img-fluid login-image" alt="logo-picture">
+            <img src="media/Biodiscovery/logo.png" class="img-fluid login-image" alt="logo-picture">
             <p id="text_for_logo">Reset password</p>
             <form autocomplete="off" action="/resetpassword" method = "post">
                 <input type="hidden" name="csrf" value="<% out.print(session.getAttribute("csrf")); %>">

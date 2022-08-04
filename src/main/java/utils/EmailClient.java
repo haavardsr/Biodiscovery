@@ -3,8 +3,10 @@ package utils;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Properties;
+import java.util.Scanner;
 
 /**
  * Below is the sender email, password given by the SMTP
@@ -12,11 +14,12 @@ import java.util.Properties;
 
 public class EmailClient {
     private static final String senderEmail = "resetbruker@gmail.com";
+    //private static final String senderPassword = "If not API key is used. Use this insted";
     private static final String senderPassword;
 
     static {
         try {
-            senderPassword = ScannerFile.getPassword();
+            senderPassword = getPassword();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -29,7 +32,6 @@ public class EmailClient {
         //create message using session
         MimeMessage message = new MimeMessage(session);
         prepareEmailMessage(message, to, title, html);
-
         //sending message
         Transport.send(message);
     }
@@ -60,12 +62,23 @@ public class EmailClient {
     }
 
     /**
-     * Test . Change Biodiscoveryas@gmail.com and try with your own email
+     * This is where we place the APIkey file it will read
+     */
+    public static String getPassword() throws FileNotFoundException {
+        File file = new File("/usr/local/tomcat/APIkey/SenderPassword.txt");
+        Scanner scan = new Scanner(file);
+        String passwd = null;
+        while(scan.hasNextLine()) passwd = scan.nextLine();
+        return passwd;
+    }
+
+    /**
+     * Test . e-mail and try with your own email
      */
 
-    public static void main(String[] args) throws MessagingException {
-        EmailClient.sendAsHtml("resetbruker@gmail.com",
+    /*public static void main(String[] args) throws MessagingException {
+        EmailClient.sendAsHtml("hsrosenlund95@gmail.com",
                 "Test email",
                 "<h2>Java Mail Example</h2><p>hi there!</p>");
-    }
+    }*/
 }
