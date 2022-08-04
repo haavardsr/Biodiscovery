@@ -50,6 +50,10 @@ public class ForgotPasswordServlet extends Servlet {
                 db = DBUtils.getINSTANCE().getConnection();
                 String token = Validation.createToken(email);
 
+                /**
+                 * remember to change out the ip address when you are making a website. 158.175.146.3 is used for this porject
+                 */
+
 
                 String q = "update user set verificationKey=? where email=?";
                 ps = db.prepareStatement(q);
@@ -57,7 +61,7 @@ public class ForgotPasswordServlet extends Servlet {
                 ps.setString(2,user.getEmail());
                 EmailClient.sendAsHtml(user.getEmail(),
                         "Reset password",
-                        "<h2>Click on the link to reset your password </h2><a href='http://localhost:8081/resetpassword?key="+ token +"'>http://localhost:8081/restpassword?key=hei</a>");
+                        "<h2>Click on the link to reset your password </h2><a href='http://158.175.146.3:8081/resetpassword?key="+ token +"'>http://158.175.146.3:8081/restpassword?key=hei</a>");
 
                 session.setAttribute("success", "We have now sent an email with instructions to reset your password.");
 
