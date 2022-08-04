@@ -97,7 +97,6 @@ public class createUser extends Servlet {
 
                             String q = "select last_insert_id() as user_id";
                             db = DBUtils.getINSTANCE().getConnection();
-                            ;
                             ps = db.prepareStatement(q);
                             ResultSet rs = ps.executeQuery();
                             int userId = 0;
@@ -105,7 +104,7 @@ public class createUser extends Servlet {
                                 userId = rs.getInt("user_id");
 
                             }
-                            response.sendRedirect("login");
+
 
 
                         } catch (SQLException | ClassNotFoundException e) {
@@ -129,6 +128,7 @@ public class createUser extends Servlet {
                         } catch (Exception e) {
                             throw new RuntimeException(e);
                         }
+                        response.sendRedirect("login");
                     }
                 }
             }
